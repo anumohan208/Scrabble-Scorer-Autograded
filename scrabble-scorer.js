@@ -107,7 +107,7 @@ const scoringAlgorithms = [simpleScore,vowelBonusScore,scrabbleScore];
 
 function scorerPrompt() {
 
-   console.log("Which Scoring Algoritham would you like to Use\n0 - Simple : One point per charecter");
+   console.log("\nWhich Scoring Algoritham would you like to Use\n0 - Simple : One point per charecter");
    console.log("1 - Vowel Bonus : Vowels are worth 3 points");
    console.log("2 - Scrabble : Uses Scrabble point system");
    let option;
@@ -127,19 +127,16 @@ function scorerPrompt() {
 function transform(oldStructure) {
 
    let newPointStructure = {};
-   let letterArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-   
-   for (i = 0; i < letterArr.length; i++) {
-
-      for (item in oldStructure) {
-
-         if (oldStructure[item].includes(letterArr[i]))
-            
-            newPointStructure[letterArr[i].toLowerCase()]= parseInt(item);
-      }
+      
+   for (item in oldStructure) {
+      
+      for(i=0;i< oldPointStructure[item].length;i++)
+        
+      newPointStructure[oldPointStructure[item][i].toLowerCase()] = parseInt(item);
    }
-   //newPointStructure[''] =parseInt(0);
 
+   //newPointStructure[''] =parseInt(0);
+   
    return newPointStructure;
 };
 
